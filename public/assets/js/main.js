@@ -1,5 +1,8 @@
 // Tour Package Booking Website - Main JavaScript
 
+// Check if we're in demo mode (local development)
+const isDemoMode = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // Mobile menu toggle
