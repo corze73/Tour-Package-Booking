@@ -14,8 +14,8 @@ window.mockData = {
             difficulty_level: "Challenging",
             rating: 4.8,
             total_reviews: 124,
-            image_url: "assets/images/gallery-1.svg",
-            gallery: ["assets/images/gallery-1.svg", "assets/images/gallery-2.svg", "assets/images/gallery-3.svg"],
+            image_url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+            gallery: ["https://images.unsplash.com/photo-1506905925346-21bda4d32df4", "https://images.unsplash.com/photo-1544735716-392fe2489ffa", "https://images.unsplash.com/photo-1570641963303-92ce4845ed4c"],
             includes: "Professional guide, Accommodation, All meals, Equipment rental, Transportation",
             excludes: "International flights, Personal equipment, Travel insurance, Tips"
         },
@@ -32,8 +32,8 @@ window.mockData = {
             difficulty_level: "Easy",
             rating: 4.9,
             total_reviews: 87,
-            image_url: "assets/images/gallery-2.svg",
-            gallery: ["assets/images/gallery-2.svg", "assets/images/gallery-4.svg", "assets/images/gallery-5.svg"],
+            image_url: "https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+            gallery: ["https://images.unsplash.com/photo-1516426122078-c23e76319801", "https://images.unsplash.com/photo-1551632811-561732d1e306", "https://images.unsplash.com/photo-1547036967-23d11aacaee0"],
             includes: "Luxury accommodation, All meals, Game drives, Professional guide, Airport transfers",
             excludes: "International flights, Visa fees, Travel insurance, Personal expenses"
         },
@@ -50,8 +50,8 @@ window.mockData = {
             difficulty_level: "Moderate",
             rating: 4.7,
             total_reviews: 96,
-            image_url: "assets/images/gallery-3.svg",
-            gallery: ["assets/images/gallery-3.svg", "assets/images/gallery-1.svg", "assets/images/gallery-6.svg"],
+            image_url: "https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+            gallery: ["https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9", "https://images.unsplash.com/photo-1520637836862-4d197d17c35a", "https://images.unsplash.com/photo-1441974231531-c6227db76b6e"],
             includes: "Eco-lodge accommodation, All meals, Guided excursions, Boat transfers, Equipment",
             excludes: "International flights, Vaccinations, Travel insurance, Alcoholic beverages"
         },
@@ -68,8 +68,8 @@ window.mockData = {
             difficulty_level: "Easy",
             rating: 4.6,
             total_reviews: 73,
-            image_url: "assets/images/gallery-4.svg",
-            gallery: ["assets/images/gallery-4.svg", "assets/images/gallery-2.svg", "assets/images/gallery-1.svg"],
+            image_url: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+            gallery: ["https://images.unsplash.com/photo-1531366936337-7c912a4589a7", "https://images.unsplash.com/photo-1520637836862-4d197d17c35a", "https://images.unsplash.com/photo-1544735716-392fe2489ffa"],
             includes: "Hotel accommodation, All meals, Northern Lights tours, Professional guide, Warm clothing",
             excludes: "International flights, Travel insurance, Personal expenses, Optional activities"
         },
@@ -86,8 +86,8 @@ window.mockData = {
             difficulty_level: "Moderate",
             rating: 4.5,
             total_reviews: 156,
-            image_url: "assets/images/gallery-5.svg",
-            gallery: ["assets/images/gallery-5.svg", "assets/images/gallery-3.svg", "assets/images/gallery-4.svg"],
+            image_url: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+            gallery: ["https://images.unsplash.com/photo-1508804185872-d7badad00f7d", "https://images.unsplash.com/photo-1570641963303-92ce4845ed4c", "https://images.unsplash.com/photo-1547036967-23d11aacaee0"],
             includes: "Hotel accommodation, All meals, Great Wall tours, Cultural sites, Professional guide",
             excludes: "International flights, Visa fees, Travel insurance, Personal shopping"
         },
@@ -104,8 +104,8 @@ window.mockData = {
             difficulty_level: "Easy",
             rating: 4.8,
             total_reviews: 92,
-            image_url: "assets/images/gallery-6.svg",
-            gallery: ["assets/images/gallery-6.svg", "assets/images/gallery-5.svg", "assets/images/gallery-2.svg"],
+            image_url: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+            gallery: ["https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff", "https://images.unsplash.com/photo-1544735716-392fe2489ffa", "https://images.unsplash.com/photo-1516426122078-c23e76319801"],
             includes: "Yacht accommodation, All meals, Island tours, Snorkeling equipment, Skipper",
             excludes: "International flights, Travel insurance, Port fees, Personal expenses"
         }
