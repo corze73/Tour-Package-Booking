@@ -1,17 +1,9 @@
-<?php
-require_once 'includes/functions.php';
-
-// Get featured tours
-$featured_tours = getAllTours(6, true);
-$all_tours = getAllTours(12);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo SITE_NAME; ?> - Discover Amazing Adventures</title>
+    <title>Adventure Tours - Discover Amazing Adventures</title>
     <meta name="description" content="Book amazing tour packages with Adventure Tours. Explore breathtaking destinations with our guided tours and create unforgettable memories.">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
@@ -21,31 +13,55 @@ $all_tours = getAllTours(12);
     <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="index.php"><?php echo SITE_NAME; ?></a>
+                <a href="index.html">Adventure Tours</a>
             </div>
             <nav>
                 <ul class="nav">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#tours">Tours</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tours.html">Tours</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="admin/login.php">Admin</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="admin/index.html" class="btn btn-sm">Admin</a></li>
                 </ul>
-                <button class="mobile-menu-toggle">☰</button>
             </nav>
+            <button class="mobile-menu-toggle">☰</button>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Discover Amazing Adventures</h1>
-                <p>Explore breathtaking destinations with our carefully crafted tour packages. Create memories that last a lifetime with our expert guides and exceptional service.</p>
-                <div class="hero-buttons">
-                    <a href="#tours" class="btn btn-primary">Explore Tours</a>
-                    <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-text">
+                    <h1 class="hero-title">Discover Your Next Adventure</h1>
+                    <p class="hero-subtitle">Explore breathtaking destinations with our expertly guided tours and create memories that will last a lifetime.</p>
+                    <div class="hero-actions">
+                        <a href="#tours" class="btn btn-primary btn-lg">Explore Tours</a>
+                        <a href="contact.html" class="btn btn-outline btn-lg">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" id="tours-count">6+</div>
+                        <div class="stat-label">Amazing Tours</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="bookings-count">1247+</div>
+                        <div class="stat-label">Happy Travelers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="rating-average">4.7★</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="satisfaction-rate">96%</div>
+                        <div class="stat-label">Satisfaction Rate</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,59 +73,12 @@ $all_tours = getAllTours(12);
             <h2 class="section-title">Featured Tours</h2>
             <p class="section-subtitle">Discover our most popular destinations and experiences</p>
             
-            <div class="row">
-                <?php foreach ($featured_tours as $tour): ?>
-                    <?php
-                    $images = getTourImages($tour['id']);
-                    $primary_image = $tour['primary_image'] ?: 'assets/images/default-tour.svg';
-                    $discount = $tour['discount_price'] ? round((($tour['price'] - $tour['discount_price']) / $tour['price']) * 100) : 0;
-                    ?>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="<?php echo htmlspecialchars($primary_image); ?>" 
-                                     alt="<?php echo htmlspecialchars($tour['title']); ?>">
-                                <?php if ($discount > 0): ?>
-                                    <div class="card-badge"><?php echo $discount; ?>% OFF</div>
-                                <?php endif; ?>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title"><?php echo htmlspecialchars($tour['title']); ?></h3>
-                                <p class="card-description"><?php echo htmlspecialchars($tour['short_description']); ?></p>
-                                
-                                <div class="card-meta">
-                                    <span>📍 <?php echo htmlspecialchars($tour['location']); ?></span>
-                                    <span>⏰ <?php echo htmlspecialchars($tour['duration']); ?></span>
-                                </div>
-                                
-                                <?php if ($tour['avg_rating']): ?>
-                                    <div class="rating mb-2">
-                                        <div data-rating="<?php echo formatRating($tour['avg_rating']); ?>"></div>
-                                        <span class="rating-text">(<?php echo $tour['review_count']; ?> reviews)</span>
-                                    </div>
-                                <?php endif; ?>
-                                
-                                <div class="card-price">
-                                    <?php if ($tour['discount_price']): ?>
-                                        <?php echo formatPrice($tour['discount_price']); ?>
-                                        <span class="card-price-old"><?php echo formatPrice($tour['price']); ?></span>
-                                    <?php else: ?>
-                                        <?php echo formatPrice($tour['price']); ?>
-                                    <?php endif; ?>
-                                    <small>per person</small>
-                                </div>
-                                
-                                <div class="card-actions mt-3">
-                                    <a href="tour-details.php?id=<?php echo $tour['id']; ?>" class="btn btn-primary">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+            <div class="row" id="featured-tours">
+                <!-- Tours will be loaded dynamically -->
             </div>
             
             <div class="text-center mt-4">
-                <a href="tours.php" class="btn btn-outline">View All Tours</a>
+                <a href="tours.html" class="btn btn-outline">View All Tours</a>
             </div>
         </div>
     </section>
@@ -199,36 +168,8 @@ $all_tours = getAllTours(12);
             <h2 class="section-title">What Our Customers Say</h2>
             <p class="section-subtitle">Read genuine reviews from our satisfied travelers</p>
             
-            <div class="row">
-                <?php
-                // Get recent reviews from all tours
-                $recent_reviews = $pdo->query("
-                    SELECT r.*, t.title as tour_title 
-                    FROM reviews r 
-                    JOIN tours t ON r.tour_id = t.id 
-                    WHERE r.status = 'approved' 
-                    ORDER BY r.created_at DESC 
-                    LIMIT 6
-                ")->fetchAll();
-                
-                foreach ($recent_reviews as $review):
-                ?>
-                    <div class="col-md-6">
-                        <div class="review">
-                            <div class="review-header">
-                                <div class="review-info">
-                                    <h4 class="review-author"><?php echo htmlspecialchars($review['customer_name']); ?></h4>
-                                    <p class="review-tour"><?php echo htmlspecialchars($review['tour_title']); ?></p>
-                                </div>
-                                <div class="review-rating">
-                                    <div data-rating="<?php echo $review['rating']; ?>"></div>
-                                    <span class="review-date"><?php echo date('M j, Y', strtotime($review['created_at'])); ?></span>
-                                </div>
-                            </div>
-                            <p class="review-text"><?php echo htmlspecialchars($review['review_text']); ?></p>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+            <div class="row" id="customer-reviews">
+                <!-- Reviews will be loaded dynamically -->
             </div>
         </div>
     </section>
@@ -242,7 +183,7 @@ $all_tours = getAllTours(12);
             <div class="row">
                 <div class="col-md-6">
                     <div class="form">
-                        <form id="contact-form" action="contact.php" method="POST">
+                        <form id="contact-form">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label class="form-label" for="name">Name *</label>
@@ -263,6 +204,7 @@ $all_tours = getAllTours(12);
                             </div>
                             <button type="submit" class="btn btn-primary">Send Message</button>
                         </form>
+                        <div id="contact-message" class="mt-3"></div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -278,11 +220,11 @@ $all_tours = getAllTours(12);
                         </div>
                         <div class="contact-item">
                             <strong>✉️ Email:</strong>
-                            <p><?php echo ADMIN_EMAIL; ?></p>
+                            <p>info@adventuretours.com</p>
                         </div>
                         <div class="contact-item">
-                            <strong>🕒 Hours:</strong>
-                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                            <strong>🕐 Hours:</strong>
+                            <p>Mon-Fri: 9AM-6PM<br>Sat-Sun: 10AM-4PM</p>
                         </div>
                     </div>
                 </div>
@@ -293,46 +235,175 @@ $all_tours = getAllTours(12);
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3><?php echo SITE_NAME; ?></h3>
-                    <p>We create unforgettable travel experiences with our carefully curated tour packages. Explore the world with confidence and comfort.</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-section">
+                        <h3>Adventure Tours</h3>
+                        <p>Creating unforgettable travel experiences around the world. Join us for your next adventure!</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook">📘</a>
+                            <a href="#" aria-label="Twitter">🐦</a>
+                            <a href="#" aria-label="Instagram">📷</a>
+                            <a href="#" aria-label="YouTube">📺</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#tours">Tours</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#reviews">Reviews</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                <div class="col-md-2">
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="tours.html">Tours</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Tour Categories</h3>
-                    <ul>
-                        <li><a href="tours.php?category=adventure">Adventure Tours</a></li>
-                        <li><a href="tours.php?category=cultural">Cultural Tours</a></li>
-                        <li><a href="tours.php?category=beach">Beach Holidays</a></li>
-                        <li><a href="tours.php?category=city">City Breaks</a></li>
-                    </ul>
+                <div class="col-md-3">
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Adventure Tours</a></li>
+                            <li><a href="#">Cultural Experiences</a></li>
+                            <li><a href="#">Wildlife Safari</a></li>
+                            <li><a href="#">Custom Packages</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">YouTube</a></li>
-                    </ul>
+                <div class="col-md-3">
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Travel Insurance</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <?php echo date('Y'); ?> <?php echo SITE_NAME; ?>. All rights reserved. | Designed for adventure seekers worldwide.</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2024 Adventure Tours. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <p>Built with ❤️ for amazing adventures</p>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="assets/js/mock-data.js"></script>
+    <script src="assets/js/api.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/netlify-app.js"></script>
+    
+    <!-- Demo Mode JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load mock data for demo
+            if (window.mockData) {
+                loadFeaturedTours();
+                loadCustomerReviews();
+                setupContactForm();
+            }
+        });
+
+        function loadFeaturedTours() {
+            const container = document.getElementById('featured-tours');
+            if (!container) return;
+
+            const tours = window.mockData.tours.slice(0, 6);
+            container.innerHTML = tours.map(tour => `
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="${tour.image_url}" alt="${tour.title}">
+                            ${tour.discount_price ? `<div class="card-badge">${Math.round(((tour.price - tour.discount_price) / tour.price) * 100)}% OFF</div>` : ''}
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">${tour.title}</h3>
+                            <p class="card-description">${tour.short_description}</p>
+                            
+                            <div class="card-meta">
+                                <span>📍 ${tour.location}</span>
+                                <span>⏰ ${tour.duration}</span>
+                            </div>
+                            
+                            <div class="rating mb-2">
+                                <div class="stars">${'★'.repeat(Math.floor(tour.rating))}${'☆'.repeat(5-Math.floor(tour.rating))}</div>
+                                <span class="rating-text">(${tour.total_reviews} reviews)</span>
+                            </div>
+                            
+                            <div class="card-price">
+                                ${tour.discount_price ? 
+                                    `$${tour.discount_price.toFixed(2)} <span class="card-price-old">$${tour.price.toFixed(2)}</span>` : 
+                                    `$${tour.price.toFixed(2)}`
+                                }
+                                <small>per person</small>
+                            </div>
+                            
+                            <div class="card-actions mt-3">
+                                <a href="tour-details.html?id=${tour.id}" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadCustomerReviews() {
+            const container = document.getElementById('customer-reviews');
+            if (!container) return;
+
+            const reviews = window.mockData.reviews.slice(0, 6);
+            container.innerHTML = reviews.map(review => {
+                const tour = window.mockData.tours.find(t => t.id === review.tour_id);
+                return `
+                    <div class="col-md-6">
+                        <div class="review">
+                            <div class="review-header">
+                                <div class="review-info">
+                                    <h4 class="review-author">${review.customer_name}</h4>
+                                    <p class="review-tour">${tour ? tour.title : 'Adventure Tour'}</p>
+                                </div>
+                                <div class="review-rating">
+                                    <div class="stars">${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}</div>
+                                    <span class="review-date">${new Date(review.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                                </div>
+                            </div>
+                            <p class="review-text">${review.comment}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function setupContactForm() {
+            const form = document.getElementById('contact-form');
+            const messageDiv = document.getElementById('contact-message');
+            
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData);
+                    
+                    // Show loading
+                    messageDiv.innerHTML = '<div class="alert alert-info">Sending message... (Demo mode)</div>';
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        messageDiv.innerHTML = '<div class="alert alert-success">✅ Message sent successfully! We\'ll get back to you soon. (Demo mode)</div>';
+                        form.reset();
+                    }, 1000);
+                });
+            }
+        }
+    </script>
 </body>
 </html>
