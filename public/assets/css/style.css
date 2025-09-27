@@ -115,18 +115,18 @@ a {
     background-position: center;
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
     color: white;
     position: relative;
 }
 
 .hero-content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 2;
 }
 
 .hero-stats {
@@ -602,6 +602,11 @@ a {
 @media (max-width: 768px) {
     .hero {
         height: 100vh;
+    }
+    
+    .hero-content {
+        transform: translate(-50%, -60%);
+        padding: 0 1rem;
     }
     
     .hero-content h1 {
