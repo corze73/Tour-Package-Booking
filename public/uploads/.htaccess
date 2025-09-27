@@ -1,0 +1,17 @@
+# Prevent execution of uploaded files
+<Files "*">
+    SetHandler default-handler
+</Files>
+
+# Allow only image files
+<FilesMatch "\.(jpg|jpeg|png|gif|svg|webp)$">
+    Allow from all
+</FilesMatch>
+
+# Deny all other file types
+<FilesMatch "\.(?!(jpg|jpeg|png|gif|svg|webp)$)[^.]+$">
+    Deny from all
+</FilesMatch>
+
+# Prevent directory browsing
+Options -Indexes

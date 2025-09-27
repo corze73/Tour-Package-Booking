@@ -1,0 +1,31 @@
+{
+  "name": "adventure-tours-netlify",
+  "version": "1.0.0",
+  "description": "Adventure Tours booking website - Netlify + Neon deployment",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'",
+    "dev": "netlify dev",
+    "deploy": "netlify deploy --prod"
+  },
+  "keywords": [
+    "tours",
+    "booking",
+    "travel",
+    "netlify",
+    "serverless"
+  ],
+  "author": "Adventure Tours Demo",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^8.11.3",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
