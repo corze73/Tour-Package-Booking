@@ -225,6 +225,3 @@ This project is created for educational and demonstration purposes. Please ensur
 - Advanced search and filtering
 
 ---
-
-**Created for Freelancer.com Project Requirements**  
-*A complete tour package booking website with real-time booking, photo galleries, user reviews, and intuitive admin dashboard.*
