@@ -1,5 +1,5 @@
--- Tour Package Booking Database Schema
--- For InfinityFree hosting - database already exists as if0_40035033_tours
+-- Tour Package Booking Database Schema for InfinityFree
+-- Database: if0_40035033_tours (already created by InfinityFree)
 
 -- Tours table
 CREATE TABLE tours (

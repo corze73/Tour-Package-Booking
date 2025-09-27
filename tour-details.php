@@ -389,7 +389,7 @@ $page_title = htmlspecialchars($tour['title']) . ' - ' . SITE_NAME;
                             <div class="col-md-4">
                                 <div class="card">
                                     <div class="card-image">
-                                        <img src="<?php echo htmlspecialchars($related_tour['primary_image'] ?: 'assets/images/default-tour.jpg'); ?>" 
+                                        <img src="<?php echo htmlspecialchars($related_tour['primary_image'] ?: 'assets/images/default-tour.svg'); ?>" 
                                              alt="<?php echo htmlspecialchars($related_tour['title']); ?>">
                                     </div>
                                     <div class="card-content">

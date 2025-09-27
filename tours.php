@@ -264,7 +264,7 @@ $page_title = "All Tours - " . SITE_NAME;
             <div class="tours-grid">
                 <?php foreach ($tours as $tour): ?>
                     <?php
-                    $primary_image = $tour['primary_image'] ?: 'assets/images/default-tour.jpg';
+                    $primary_image = $tour['primary_image'] ?: 'assets/images/default-tour.svg';
                     $discount = $tour['discount_price'] ? round((($tour['price'] - $tour['discount_price']) / $tour['price']) * 100) : 0;
                     ?>
                     <div class="card">

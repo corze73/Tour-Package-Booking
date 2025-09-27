@@ -14,7 +14,7 @@ $all_tours = getAllTours(12);
     <title><?php echo SITE_NAME; ?> - Discover Amazing Adventures</title>
     <meta name="description" content="Book amazing tour packages with Adventure Tours. Explore breathtaking destinations with our guided tours and create unforgettable memories.">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
 <body>
     <!-- Header -->
@@ -61,7 +61,7 @@ $all_tours = getAllTours(12);
                 <?php foreach ($featured_tours as $tour): ?>
                     <?php
                     $images = getTourImages($tour['id']);
-                    $primary_image = $tour['primary_image'] ?: 'assets/images/default-tour.jpg';
+                    $primary_image = $tour['primary_image'] ?: 'assets/images/default-tour.svg';
                     $discount = $tour['discount_price'] ? round((($tour['price'] - $tour['discount_price']) / $tour['price']) * 100) : 0;
                     ?>
                     <div class="col-md-4">
@@ -154,37 +154,37 @@ $all_tours = getAllTours(12);
             
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="assets/images/gallery-1.jpg" alt="Mountain Adventure" loading="lazy">
+                    <img src="assets/images/gallery-1.svg" alt="Mountain Adventure" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Mountain Adventures</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/gallery-2.jpg" alt="Beach Paradise" loading="lazy">
+                    <img src="assets/images/gallery-2.svg" alt="Beach Paradise" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Beach Paradise</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/gallery-3.jpg" alt="Desert Safari" loading="lazy">
+                    <img src="assets/images/gallery-3.svg" alt="Desert Safari" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Desert Safari</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/gallery-4.jpg" alt="City Tours" loading="lazy">
+                    <img src="assets/images/gallery-4.svg" alt="City Tours" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>City Tours</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/gallery-5.jpg" alt="Cultural Experiences" loading="lazy">
+                    <img src="assets/images/gallery-5.svg" alt="Cultural Experiences" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Cultural Experiences</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/gallery-6.jpg" alt="Wildlife Safari" loading="lazy">
+                    <img src="assets/images/gallery-6.svg" alt="Wildlife Safari" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Wildlife Safari</h4>
                     </div>
