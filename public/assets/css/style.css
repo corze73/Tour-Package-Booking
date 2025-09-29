@@ -107,6 +107,53 @@ a {
     cursor: pointer;
 }
 
+/* Demo Banner */
+.demo-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1000;
+}
+
+.demo-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-align: center;
+}
+
+.demo-icon {
+    font-size: 1.1rem;
+}
+
+.demo-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.demo-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.demo-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
 /* Hero Section - Updated for Perfect Centering v2.0 */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
@@ -603,6 +650,27 @@ a {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .demo-banner {
+        padding: 1rem 0;
+    }
+    
+    .demo-banner-content {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .demo-text {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .demo-close {
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+    }
+    
     .hero {
         height: 100vh;
     }
